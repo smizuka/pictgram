@@ -24,6 +24,9 @@ class User < ApplicationRecord
   # validates :password_confirmation, presence: true
 
   has_secure_password
+  has_many :topics
+  has_many :favorites
+  has_many :favorite_topics, through: :favorites, source: "topic"
 
 end
 
