@@ -23,6 +23,15 @@ class TopicsController < ApplicationController
     end
   end
 
+  # 削除機能の実装
+  def destroy
+    @topic =Topic.find(params[:id])
+    # @topic =Topic.find(id: params[:id])
+    @topic.destroy
+
+    redirect_to topics_path,success: "画像を削除しました"
+  end
+
   private
   def topic_params
     params.require(:topic).permit(:image,:description)

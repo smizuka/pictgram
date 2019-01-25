@@ -24,6 +24,12 @@
         <ul class="nav navbar-nav navbar-right">
 
           <% if logged_in? %>
+            <!-- マイページに戻るリンクを追加 -->
+            <li>
+              <%= link_to topics_path do %>
+                <%= image_tag "icons/my_img.png" %>
+              <% end %>
+            </li>
             <li>
               <%= link_to favorites_index_path do %>
                 <%= image_tag "icons/heart.png" %>
