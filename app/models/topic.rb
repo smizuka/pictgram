@@ -5,9 +5,11 @@ class Topic < ApplicationRecord
 
   belongs_to :user
   mount_uploader :image, ImageUploader
-
   has_many :favorites
   has_many :favorite_users, through: :favorites, source: "user"
+
+  #コメントテーブルとの関連
+  has_many :comments
 
 end
 

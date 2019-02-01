@@ -1,11 +1,11 @@
 class TopicsController < ApplicationController
 
-  # def index
-  #   @topics=Topic.all
-  # end
-
   def index
     @topics = Topic.all.includes(:favorite_users)
+    #コメント一覧を表示するための設定
+    @comments=Comment.all
+    #topic/indexに反映させたい場合はここに記述する
+    @comment=Comment.new
   end
 
   def new
@@ -28,7 +28,6 @@ class TopicsController < ApplicationController
     @topic =Topic.find(params[:id])
     # @topic =Topic.find(id: params[:id])
     @topic.destroy
-
     redirect_to topics_path,success: "画像を削除しました"
   end
 

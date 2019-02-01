@@ -24,9 +24,18 @@ class User < ApplicationRecord
   # validates :password_confirmation, presence: true
 
   has_secure_password
+  #画像テーブル
   has_many :topics
+
+  # お気に入りテーブル
   has_many :favorites
   has_many :favorite_topics, through: :favorites, source: "topic"
 
+  # コメントテーブル
+  has_many :comments
+
 end
+
+
+
 
