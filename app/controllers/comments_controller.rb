@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
       redirect_to topics_path
     else
       redirect_to topics_path, danger: "コメント投稿失敗"
+      # render :topic/index
     end
   end
 
